@@ -56,6 +56,7 @@ class Sheets:
         self.cumulative_rate = '=(INDIRECT(CONCAT("E", ROW())) / INDIRECT(CONCAT("B", ROW())))'
         self.sheet_range = "A:A"
         self.current_hour = '=(INDIRECT(CONCAT("B", ROW() - 1)) + 1)'
+        self.current_half_hour = '=(INDIRECT(CONCAT("B", ROW() - 1)) + .5)'
         self.kst_timezone = pytz.timezone("Asia/Seoul")
 
     def add_views(self, views: int, views_2: int):
@@ -81,11 +82,12 @@ class Sheets:
 
 if __name__ == '__main__':
     # constants
-    spreadsheet_id = "1dDgCATWYKDinbgTLLI26PBmDOfSuONnpQW7MSQ_TNr0"
-    first_video_id = "I67jpVeNCro"
-    second_video_id = "EtiPbWzUY9o"
+    spreadsheet_id = "1-yYMCSxu-mUJG9dvxck3tx9fdlXSult4FlnXkWIXq90"
+    first_video_id = "PEKkdIT8JPM"
+    second_video_id = ""
     language = "en-us"
     sleep_time = 30*60
+    sleep_time_hour = 60*60
 
     youtube = Youtube()
     sheets = Sheets(spreadsheet_id)
@@ -103,6 +105,6 @@ if __name__ == '__main__':
             print(f"Updated Video 1 with {first_video_views} views.")
             print(f"Updated Video 2 with {second_video_views} views.")
             print("Sleeping for 30 minutes.")
-            sleep(sleep_time)
+            sleep(sleep_time_hour)
         except Exception as e:
             print(e)

@@ -104,7 +104,7 @@ if __name__ == '__main__':
             sheets.add_views(first_video_views, second_video_views)
             print(f"Updated Video 1 with {first_video_views} views.")
             print(f"Updated Video 2 with {second_video_views} views.")
-            print("Sleeping for 30 minutes.")
+            print(f"Sleeping...")
             sleep(sleep_time_hour)
         except Exception as e:
             print(e)
